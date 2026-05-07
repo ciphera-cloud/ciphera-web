@@ -1,53 +1,36 @@
 "use client"
 
-import { EUROPE_DOTS } from "./europeDots"
+import { EUROPE_DOTS } from "./europe-dots"
+import { useI18n } from "@/lib/i18n"
 
-// Dot matrix coords are in space [112-549, 71-451]
-// We use a 600x500 viewBox to match the HTML proportions
+// Dot matrix coords are in space [112-549, 71-451]; viewBox 600x500 matches the HTML proportions.
 const VIEWBOX_W = 600
 const VIEWBOX_H = 500
 
-// Location markers — positioned over the dot matrix
-// București is the highlighted/primary one (matches the special r=10 marker at 372,350)
-const LOCATIONS = [
-  {
-    name: "Frankfurt",
-    label: "Primary · Hetzner DE",
-    cx: 275,
-    cy: 215,
-    type: "primary",
-    boxOffset: { x: 18, y: -16 },
-  },
-  {
-    name: "Paris",
-    label: "Edge node",
-    cx: 215,
-    cy: 235,
-    type: "edge",
-    boxOffset: { x: -80, y: 8 },
-  },
-  {
-    name: "București",
-    label: "HQ · Support RO",
-    cx: 372,
-    cy: 350,
-    type: "primary",
-    boxOffset: { x: 22, y: -50 },
-  },
-  {
-    name: "Sofia",
-    label: "Edge node",
-    cx: 350,
-    cy: 380,
-    type: "edge",
-    boxOffset: { x: -55, y: 22 },
-  },
-]
+type LocationKey = "frankfurt" | "paris" | "bucuresti" | "sofia"
 
-// Special highlighted location (matches r=10 + r=4 in original HTML — București)
+const POSITIONS: Record<
+  LocationKey,
+  { cx: number; cy: number; type: "primary" | "edge"; boxOffset: { x: number; y: number } }
+> = {
+  frankfurt: { cx: 275, cy: 215, type: "primary", boxOffset: { x: 18, y: -16 } },
+  paris: { cx: 215, cy: 235, type: "edge", boxOffset: { x: -80, y: 8 } },
+  bucuresti: { cx: 372, cy: 350, type: "primary", boxOffset: { x: 22, y: -50 } },
+  sofia: { cx: 350, cy: 380, type: "edge", boxOffset: { x: -55, y: 22 } },
+}
+
 const HIGHLIGHTED = { cx: 372, cy: 350 }
 
 export function Map() {
+  const { t } = useI18n()
+
+  const locations = (Object.keys(POSITIONS) as LocationKey[]).map((key) => ({
+    key,
+    ...POSITIONS[key],
+    name: t.map.locations[key].name,
+    label: t.map.locations[key].label,
+  }))
+
   return (
     <div className="relative w-full h-full">
       <svg
@@ -99,25 +82,27 @@ export function Map() {
           fill="oklch(0.42 0.14 255)"
         />
 
-        {/* Connecting lines from boxes to dots */}
-        {LOCATIONS.filter(l => l.type === "primary").map((loc) => (
-          <line
-            key={`line-${loc.name}`}
-            x1={loc.cx}
-            y1={loc.cy}
-            x2={loc.cx + loc.boxOffset.x}
-            y2={loc.cy + loc.boxOffset.y + 12}
-            stroke="oklch(0.18 0.01 270)"
-            strokeWidth="0.5"
-            strokeDasharray="2 2"
-            opacity="0.4"
-          />
-        ))}
+        {/* Connecting lines from primary boxes to their dots */}
+        {locations
+          .filter((l) => l.type === "primary")
+          .map((loc) => (
+            <line
+              key={`line-${loc.key}`}
+              x1={loc.cx}
+              y1={loc.cy}
+              x2={loc.cx + loc.boxOffset.x}
+              y2={loc.cy + loc.boxOffset.y + 12}
+              stroke="oklch(0.18 0.01 270)"
+              strokeWidth="0.5"
+              strokeDasharray="2 2"
+              opacity="0.4"
+            />
+          ))}
 
         {/* Location dot markers */}
-        {LOCATIONS.map((loc) => (
+        {locations.map((loc) => (
           <circle
-            key={`dot-${loc.name}`}
+            key={`dot-${loc.key}`}
             cx={loc.cx}
             cy={loc.cy}
             r="3"
@@ -126,14 +111,14 @@ export function Map() {
         ))}
 
         {/* Location info — primary as dark blue boxes, edge as plain text */}
-        {LOCATIONS.map((loc) => {
+        {locations.map((loc) => {
           const x = loc.cx + loc.boxOffset.x
           const y = loc.cy + loc.boxOffset.y
           const isPrimary = loc.type === "primary"
 
           if (isPrimary) {
             return (
-              <g key={`box-${loc.name}`} transform={`translate(${x}, ${y})`}>
+              <g key={`box-${loc.key}`} transform={`translate(${x}, ${y})`}>
                 <rect
                   width="120"
                   height="30"
@@ -166,7 +151,7 @@ export function Map() {
           }
 
           return (
-            <g key={`text-${loc.name}`} transform={`translate(${x}, ${y})`}>
+            <g key={`text-${loc.key}`} transform={`translate(${x}, ${y})`}>
               <text
                 x="0"
                 y="0"
@@ -198,10 +183,10 @@ export function Map() {
           textAnchor="end"
         >
           <text x={VIEWBOX_W - 8} y="20" fontSize="11" fontWeight="600">
-            PLATE I
+            {t.map.legendTitle}
           </text>
           <text x={VIEWBOX_W - 8} y="34" fontSize="10" opacity="0.85">
-            EU SOVEREIGN NETWORK
+            {t.map.legendSubtitle}
           </text>
         </g>
       </svg>

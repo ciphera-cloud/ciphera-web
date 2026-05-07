@@ -1,7 +1,12 @@
-import { Map } from "@/components/sections/Map"
-import { Trust } from "@/components/sections/Trust"
+"use client"
+
+import { Map } from "@/components/sections/map"
+import { Trust } from "@/components/sections/trust"
+import { useI18n } from "@/lib/i18n"
 
 export function Hero() {
+  const { t } = useI18n()
+
   return (
     <section
       className="grid grid-cols-2 border-b"
@@ -28,7 +33,7 @@ export function Hero() {
               fontFamily: 'var(--font-geist-mono)',
             }}
           >
-            Vol. 01 — Sovereign Cloud, Made for Europe
+            {t.hero.volume}
           </span>
         </div>
 
@@ -41,7 +46,7 @@ export function Hero() {
               fontFamily: 'var(--font-bricolage)',
             }}
           >
-            Your data,
+            {t.hero.title.line1}
             <br />
             <em
               className="italic font-normal"
@@ -51,13 +56,15 @@ export function Hero() {
                 fontSize: '92px',
               }}
             >
-              your Europe.
+              {t.hero.title.line2}
             </em>
             <br />
-            <span style={{ color: 'oklch(0.42 0.01 270)' }}>Nothing less.</span>
+            <span style={{ color: 'oklch(0.42 0.01 270)' }}>
+              {t.hero.title.line3}
+            </span>
           </h1>
 
-          {/* Bilingual subtitle */}
+          {/* Bilingual subtitle (always shows the OPPOSITE language) */}
           <div className="mt-8 flex items-baseline gap-3">
             <span
               className="text-[12px] uppercase tracking-[0.15em]"
@@ -66,7 +73,7 @@ export function Hero() {
                 fontFamily: 'var(--font-geist-mono)',
               }}
             >
-              RO  /
+              {t.hero.bilingualLabel}
             </span>
             <span
               className="italic text-[16px]"
@@ -75,7 +82,7 @@ export function Hero() {
                 fontFamily: 'var(--font-instrument-serif)',
               }}
             >
-              Datele tale, Europa ta. Suveranitate digitală fără compromis.
+              {t.hero.bilingualText}
             </span>
           </div>
 
@@ -84,7 +91,7 @@ export function Hero() {
             className="mt-6 text-[17px] leading-[1.55] max-w-[540px]"
             style={{ color: 'oklch(0.18 0.01 270)' }}
           >
-            A complete Microsoft 365 alternative — files, docs, mail, video and a private AI — hosted on European hardware, governed by European law, beyond the reach of the US{' '}
+            {t.hero.descriptionPrefix}{' '}
             <span
               className="px-1.5 py-0.5 text-[14px] rounded"
               style={{
@@ -93,9 +100,9 @@ export function Hero() {
                 fontFamily: 'var(--font-geist-mono)',
               }}
             >
-              CLOUD Act
+              {t.hero.descriptionTag}
             </span>
-            .
+            {t.hero.descriptionSuffix}
           </p>
 
           {/* Buttons */}
@@ -107,7 +114,7 @@ export function Hero() {
                 color: 'white',
               }}
             >
-              Start 30-day free trial
+              {t.hero.primaryCta}
               <span className="text-[13px]">↗</span>
             </button>
             <button
@@ -124,7 +131,7 @@ export function Hero() {
               >
                 <span className="text-white text-[10px] ml-0.5">▶</span>
               </span>
-              Watch 90-sec demo
+              {t.hero.demoCta}
             </button>
           </div>
         </div>
@@ -144,7 +151,7 @@ export function Hero() {
               fontFamily: 'var(--font-geist-mono)',
             }}
           >
-            Hetzner · Frankfurt DE  ·  EST. București 2026
+            {t.hero.location}
           </span>
         </div>
 

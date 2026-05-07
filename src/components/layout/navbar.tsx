@@ -1,12 +1,7 @@
-import Link from "next/link"
+"use client"
 
-const NAV_LINKS = [
-  { label: "Platform", href: "#" },
-  { label: "Sovereignty", href: "#" },
-  { label: "Industries", href: "#" },
-  { label: "Pricing", href: "#" },
-  { label: "Docs", href: "#" },
-]
+import Link from "next/link"
+import { useI18n } from "@/lib/i18n"
 
 function CipheraLogoMark() {
   return (
@@ -37,6 +32,16 @@ function CipheraLogoMark() {
 }
 
 export function Navbar() {
+  const { t, locale, setLocale } = useI18n()
+
+  const navLinks = [
+    { label: t.navbar.links.platform, href: "#" },
+    { label: t.navbar.links.sovereignty, href: "#" },
+    { label: t.navbar.links.industries, href: "#" },
+    { label: t.navbar.links.pricing, href: "#" },
+    { label: t.navbar.links.docs, href: "#" },
+  ]
+
   return (
     <header
       className="sticky top-0 z-50 border-b bg-white"
@@ -59,7 +64,7 @@ export function Navbar() {
 
         {/* Nav links centered */}
         <nav className="flex items-center justify-center gap-8">
-          {NAV_LINKS.map(({ label, href }) => (
+          {navLinks.map(({ label, href }) => (
             <Link
               key={label}
               href={href}
@@ -73,28 +78,54 @@ export function Navbar() {
 
         {/* Actions */}
         <div className="flex items-center justify-end gap-5">
-          <span
-            className="text-[11px] cursor-pointer transition-opacity hover:opacity-60 tracking-wider"
-            style={{
-              color: 'oklch(0.42 0.01 270)',
-              fontFamily: 'var(--font-geist-mono)',
-            }}
+          {/* Language toggle */}
+          <div
+            className="text-[11px] tracking-wider inline-flex items-center gap-1.5 select-none"
+            style={{ fontFamily: 'var(--font-geist-mono)' }}
+            role="group"
+            aria-label="Language"
           >
-            RO · EN
-          </span>
+            <button
+              type="button"
+              onClick={() => setLocale("ro")}
+              className="transition-opacity cursor-pointer"
+              style={{
+                color: 'oklch(0.18 0.01 270)',
+                opacity: locale === "ro" ? 1 : 0.45,
+                fontWeight: locale === "ro" ? 600 : 400,
+              }}
+              aria-pressed={locale === "ro"}
+            >
+              RO
+            </button>
+            <span style={{ color: 'oklch(0.42 0.01 270)' }}>·</span>
+            <button
+              type="button"
+              onClick={() => setLocale("en")}
+              className="transition-opacity cursor-pointer"
+              style={{
+                color: 'oklch(0.18 0.01 270)',
+                opacity: locale === "en" ? 1 : 0.45,
+                fontWeight: locale === "en" ? 600 : 400,
+              }}
+              aria-pressed={locale === "en"}
+            >
+              EN
+            </button>
+          </div>
           <Link
             href="/sign-in"
             className="text-[14px] transition-opacity hover:opacity-60"
             style={{ color: 'oklch(0.18 0.01 270)' }}
           >
-            Sign in
+            {t.navbar.signIn}
           </Link>
           <Link
             href="/sign-up"
             className="px-4 py-2 text-[14px] font-medium rounded-full inline-flex items-center gap-1.5 transition-opacity hover:opacity-90"
             style={{ backgroundColor: 'oklch(0.18 0.01 270)', color: 'white' }}
           >
-            Start free trial
+            {t.navbar.cta}
             <span className="text-[12px]">→</span>
           </Link>
         </div>
