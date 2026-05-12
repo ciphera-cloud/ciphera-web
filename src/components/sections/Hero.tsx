@@ -106,7 +106,7 @@ export function Hero() {
           </p>
 
           {/* Buttons */}
-          <div className="mt-10 flex items-center gap-3">
+          <div className="mt-10 flex flex-col items-start gap-2">
             <button
               className="px-5 py-3 rounded-md text-[15px] font-medium inline-flex items-center gap-2 transition-opacity hover:opacity-90"
               style={{
@@ -117,22 +117,15 @@ export function Hero() {
               {t.hero.primaryCta}
               <span className="text-[13px]">↗</span>
             </button>
-            <button
-              className="pl-2 pr-5 py-2 rounded-md text-[15px] font-medium inline-flex items-center gap-3 border transition-colors hover:bg-zinc-50"
+            <span
+              className="text-[12px] tracking-wide"
               style={{
-                borderColor: 'oklch(0.922 0 0)',
-                color: 'oklch(0.18 0.01 270)',
-                backgroundColor: 'white',
+                color: 'oklch(0.42 0.01 270)',
+                fontFamily: 'var(--font-geist-mono)',
               }}
             >
-              <span
-                className="w-7 h-7 rounded-full inline-flex items-center justify-center"
-                style={{ backgroundColor: 'oklch(0.18 0.01 270)' }}
-              >
-                <span className="text-white text-[10px] ml-0.5">▶</span>
-              </span>
-              {t.hero.demoCta}
-            </button>
+              {t.hero.primaryCtaNote}
+            </span>
           </div>
         </div>
       </div>

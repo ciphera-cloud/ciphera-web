@@ -2,6 +2,14 @@
 
 import Link from "next/link"
 import { useI18n } from "@/lib/i18n"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import type { Locale } from "@/content/translations"
 
 function CipheraLogoMark() {
   return (
@@ -78,41 +86,42 @@ export function Navbar() {
 
         {/* Actions */}
         <div className="flex items-center justify-end gap-5">
-          {/* Language toggle */}
-          <div
-            className="text-[11px] tracking-wider inline-flex items-center gap-1.5 select-none"
-            style={{ fontFamily: 'var(--font-geist-mono)' }}
-            role="group"
-            aria-label="Language"
+          {/* Language picker */}
+          <Select
+            value={locale}
+            onValueChange={(v) => setLocale(v as Locale)}
           >
-            <button
-              type="button"
-              onClick={() => setLocale("ro")}
-              className="transition-opacity cursor-pointer"
+            <SelectTrigger
+              size="sm"
+              aria-label="Language"
+              className="h-8 text-[11px] tracking-wider uppercase border-transparent shadow-none px-2 gap-1.5 hover:bg-zinc-50"
               style={{
                 color: 'oklch(0.18 0.01 270)',
-                opacity: locale === "ro" ? 1 : 0.45,
-                fontWeight: locale === "ro" ? 600 : 400,
+                fontFamily: 'var(--font-geist-mono)',
               }}
-              aria-pressed={locale === "ro"}
             >
-              RO
-            </button>
-            <span style={{ color: 'oklch(0.42 0.01 270)' }}>·</span>
-            <button
-              type="button"
-              onClick={() => setLocale("en")}
-              className="transition-opacity cursor-pointer"
-              style={{
-                color: 'oklch(0.18 0.01 270)',
-                opacity: locale === "en" ? 1 : 0.45,
-                fontWeight: locale === "en" ? 600 : 400,
-              }}
-              aria-pressed={locale === "en"}
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent
+              align="end"
+              className="min-w-[6rem]"
             >
-              EN
-            </button>
-          </div>
+              <SelectItem
+                value="en"
+                className="text-[12px] tracking-wider uppercase"
+                style={{ fontFamily: 'var(--font-geist-mono)' }}
+              >
+                English
+              </SelectItem>
+              <SelectItem
+                value="ro"
+                className="text-[12px] tracking-wider uppercase"
+                style={{ fontFamily: 'var(--font-geist-mono)' }}
+              >
+                Română
+              </SelectItem>
+            </SelectContent>
+          </Select>
           <Link
             href="/sign-in"
             className="text-[14px] transition-opacity hover:opacity-60"

@@ -1,37 +1,34 @@
+"use client"
+
+import { useI18n } from "@/lib/i18n"
+
 export function Footer() {
+  const { t } = useI18n()
+
+  const mono = {
+    color: 'oklch(0.42 0.01 270)',
+    fontFamily: 'var(--font-geist-mono)',
+  }
+
   return (
     <footer className="px-12 py-6 flex items-center justify-between">
-      <span
-        className="text-[11px] tracking-[0.12em] uppercase"
-        style={{
-          color: 'oklch(0.42 0.01 270)',
-          fontFamily: 'var(--font-geist-mono)',
-        }}
-      >
-        Made in România · for Europe
+      <span className="text-[11px] tracking-[0.12em] uppercase" style={mono}>
+        {t.footer.tagline}
       </span>
 
       <div
         className="flex items-center gap-8 text-[11px] tracking-[0.12em] uppercase"
-        style={{
-          color: 'oklch(0.42 0.01 270)',
-          fontFamily: 'var(--font-geist-mono)',
-        }}
+        style={mono}
       >
-        <a href="#hero" className="hover:opacity-70 transition-opacity">§ 01 — Hero</a>
-        <a href="#trust" className="hover:opacity-70 transition-opacity">§ 02 — Trust</a>
-        <a href="#platform" className="hover:opacity-70 transition-opacity">§ 03 — Platform</a>
-        <a href="#pricing" className="hover:opacity-70 transition-opacity">§ 04 — Pricing</a>
+        <a href="#hero" className="hover:opacity-70 transition-opacity">{t.footer.sections.hero}</a>
+        <a href="#problem" className="hover:opacity-70 transition-opacity">{t.footer.sections.problem}</a>
+        <a href="#trust" className="hover:opacity-70 transition-opacity">{t.footer.sections.trust}</a>
+        <a href="#platform" className="hover:opacity-70 transition-opacity">{t.footer.sections.platform}</a>
+        <a href="#pricing" className="hover:opacity-70 transition-opacity">{t.footer.sections.pricing}</a>
       </div>
 
-      <span
-        className="text-[11px] tracking-[0.12em] uppercase"
-        style={{
-          color: 'oklch(0.42 0.01 270)',
-          fontFamily: 'var(--font-geist-mono)',
-        }}
-      >
-        P. 001 / 006
+      <span className="text-[11px] tracking-[0.12em] uppercase" style={mono}>
+        {t.footer.page}
       </span>
     </footer>
   )

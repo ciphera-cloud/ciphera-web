@@ -1,20 +1,19 @@
+"use client"
+
+import { useI18n } from "@/lib/i18n"
+
 export function Trust() {
-  const items = [
-    { label: "HOSTED IN", title: "Germany", description: "Hetzner DE" },
-    { label: "REGULATED BY", title: "GDPR-native", description: "ANPDCP · EU only" },
-    { label: "ENCRYPTED", title: "End-to-end", description: "Confidential computing" },
-    { label: "EXEMPT FROM", title: "CLOUD Act", description: "Zero US jurisdiction" },
-  ]
+  const { t } = useI18n()
 
   return (
     <div
       className="grid grid-cols-4 border-t"
       style={{ borderColor: 'oklch(0.922 0 0)' }}
     >
-      {items.map((item, idx) => (
+      {t.trust.map((item, idx) => (
         <div
           key={idx}
-          className={`px-5 py-5 ${idx < items.length - 1 ? 'border-r' : ''}`}
+          className={`px-5 py-5 ${idx < t.trust.length - 1 ? 'border-r' : ''}`}
           style={{ borderColor: 'oklch(0.922 0 0)' }}
         >
           <div
