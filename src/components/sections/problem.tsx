@@ -11,12 +11,12 @@ export function Problem() {
       className="border-b"
       style={{ borderColor: 'oklch(0.922 0 0)' }}
     >
-      {/* Header row */}
+      {/* Header row — full-width */}
       <div
         className="border-b"
         style={{ borderColor: 'oklch(0.922 0 0)' }}
       >
-        {/* Eyebrow */}
+        {/* Eyebrow — stays full-width */}
         <div
           className="px-12 py-4 flex items-center gap-3 border-b"
           style={{ borderColor: 'oklch(0.922 0 0)' }}
@@ -36,8 +36,8 @@ export function Problem() {
           </span>
         </div>
 
-        {/* Headline + sub */}
-        <div className="px-12 py-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        {/* Headline + sub — contained */}
+        <div className="max-w-7xl mx-auto px-12 py-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
           <h2
             className="md:col-span-8 text-[56px] md:text-[72px] leading-[0.98] font-medium tracking-[-0.02em]"
             style={{
@@ -66,11 +66,12 @@ export function Problem() {
         </div>
       </div>
 
-      {/* Three risk cards */}
-      <div
-        className="grid grid-cols-1 md:grid-cols-3"
-        style={{ borderColor: 'oklch(0.922 0 0)' }}
-      >
+      {/* Three risk cards — contained */}
+      <div className="max-w-7xl mx-auto">
+        <div
+          className="grid grid-cols-1 md:grid-cols-3"
+          style={{ borderColor: 'oklch(0.922 0 0)' }}
+        >
         {t.problem.risks.map((risk, idx) => {
           const isLast = idx === t.problem.risks.length - 1
           return (
@@ -120,6 +121,7 @@ export function Problem() {
             </article>
           )
         })}
+        </div>
       </div>
     </section>
   )

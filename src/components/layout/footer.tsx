@@ -22,7 +22,7 @@ export function Footer() {
       >
         <a href="#hero" className="hover:opacity-70 transition-opacity">{t.footer.sections.hero}</a>
         <a href="#problem" className="hover:opacity-70 transition-opacity">{t.footer.sections.problem}</a>
-        <a href="#trust" className="hover:opacity-70 transition-opacity">{t.footer.sections.trust}</a>
+        <a href="#solution" className="hover:opacity-70 transition-opacity">{t.footer.sections.solution}</a>
         <a href="#platform" className="hover:opacity-70 transition-opacity">{t.footer.sections.platform}</a>
         <a href="#pricing" className="hover:opacity-70 transition-opacity">{t.footer.sections.pricing}</a>
       </div>

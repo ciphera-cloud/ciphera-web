@@ -23,7 +23,7 @@ const en = {
     bilingualLabel: "RO  /",
     bilingualText: "Datele tale, Europa ta. Suveranitate digitală fără compromis.",
     descriptionPrefix:
-      "A complete Microsoft 365 alternative — files, docs, mail, video and a private AI — hosted on European hardware, governed by European law, beyond the reach of the US",
+      "Files, documents, email, video conferencing and a private AI — all in one platform. Hosted on European hardware, governed by European law, beyond the reach of the US",
     descriptionTag: "CLOUD Act",
     descriptionSuffix: ".",
     primaryCta: "Start 30-day free trial",
@@ -47,15 +47,15 @@ const en = {
   ],
   problem: {
     eyebrow: "§ 02 — The Problem",
-    headlineLead: "Three risks Microsoft 365",
-    headlineAccent: "will never",
-    headlineTail: "put in writing.",
+    headlineLead: "Your data",
+    headlineAccent: "answers to",
+    headlineTail: "a different law.",
     sub: "Your clients' data isn't where you think it is. And it isn't protected by who you think is protecting it.",
     risks: [
       {
         eyebrow: "RISK 01 — US jurisdiction",
         title: "Your data is under US jurisdiction",
-        body: "The US CLOUD Act lets American authorities access data stored with Microsoft, Google or AWS — even if the servers physically sit in Frankfurt or Dublin. Without notice. Without your consent. With no legal route to challenge it from inside the EU.",
+        body: "The US CLOUD Act lets American authorities access data stored with any US-headquartered cloud provider — even if the servers physically sit in Frankfurt or Dublin. Without notice. Without your consent. With no legal route to challenge it from inside the EU.",
         citation: "CLOUD Act, 18 U.S.C. § 2713 (2018)",
       },
       {
@@ -67,8 +67,38 @@ const en = {
       {
         eyebrow: "RISK 03 — GDPR liability stays with you",
         title: "Their breach, your fine",
-        body: "When Microsoft has a security breach — and they do, routinely — legal liability before the data protection authority stays with you, as data controller. GDPR fines up to 4% of annual turnover, or €20 million. Plus the loss of client trust.",
+        body: "When your cloud provider has a security breach — and the major American ones do, routinely — legal liability before the data protection authority stays with you, as data controller. GDPR fines up to 4% of annual turnover, or €20 million. Plus the loss of client trust.",
         citation: "Regulation (EU) 2016/679, Art. 83",
+      },
+    ],
+  },
+  solution: {
+    eyebrow: "§ 03 — The Solution",
+    headlineLead: "Every feature.",
+    headlineAccent: "Zero",
+    headlineTail: "American dependencies.",
+    sub: "One platform with everything your firm needs. Built under European law, hosted in Germany, supported in your language.",
+    items: [
+      {
+        responseMarker: "← Answer to RISK 01",
+        eyebrow: "SOLUTION 01 — 100% European Jurisdiction",
+        title: "European law only. Full stop.",
+        body: "Your data lives on physical Hetzner servers in Frankfurt, operated by a German company under EU jurisdiction. No non-European government can request access. No contract can be overridden by foreign law. Just GDPR, NIS2, and Romanian national legislation.",
+        citation: "Hetzner Online GmbH · Frankfurt, Germany",
+      },
+      {
+        responseMarker: "← Answer to RISK 02",
+        eyebrow: "SOLUTION 02 — Complete Control, No Kill-Switch",
+        title: "Your data, under your control. Always.",
+        body: "Open-source infrastructure (Nextcloud, Collabora, Jitsi, Matrix). Auditable code. Full data export at any time, in standard formats. If you ever want to leave, you leave — with everything you have. No contractual lock-in, no risk of arbitrary suspension.",
+        citation: "Open-source · GPL/AGPL · GDPR-compliant export",
+      },
+      {
+        responseMarker: "← Answer to RISK 03",
+        eyebrow: "SOLUTION 03 — GDPR by Design",
+        title: "GDPR isn't a disclaimer. It's the architecture.",
+        body: "Standard Data Processing Agreement included. Documented GDPR audit trail. EU-only hosting. End-to-end encryption. Accessible logs. Our support team is based in Romania, speaks your language, and understands ANPDCP. When the regulator asks where your data is, you have one clear answer: Frankfurt.",
+        citation: "Pursuant to Regulation (EU) 2016/679 · NIS2 ready",
       },
     ],
   },
@@ -77,7 +107,7 @@ const en = {
     sections: {
       hero: "§ 01 — Hero",
       problem: "§ 02 — Problem",
-      trust: "§ 03 — Trust",
+      solution: "§ 03 — Solution",
       platform: "§ 04 — Platform",
       pricing: "§ 05 — Pricing",
     },
@@ -108,7 +138,7 @@ const ro: typeof en = {
     bilingualLabel: "EN  /",
     bilingualText: "Your data, your Europe. Digital sovereignty without compromise.",
     descriptionPrefix:
-      "O alternativă completă la Microsoft 365 — fișiere, documente, e-mail, video și un AI privat — găzduit pe hardware european, guvernat de legea europeană, dincolo de raza",
+      "Fișiere, documente, e-mail, videoconferință și un AI privat — toate într-o singură platformă. Găzduit pe hardware european, guvernat de legea europeană, dincolo de raza",
     descriptionTag: "CLOUD Act",
     descriptionSuffix: "-ului american.",
     primaryCta: "Începe proba de 30 de zile",
@@ -132,15 +162,15 @@ const ro: typeof en = {
   ],
   problem: {
     eyebrow: "§ 02 — Problema",
-    headlineLead: "Trei riscuri pe care Microsoft 365",
-    headlineAccent: "nu ți le va spune",
-    headlineTail: "niciodată.",
+    headlineLead: "Datele tale",
+    headlineAccent: "se supun",
+    headlineTail: "altei legi.",
     sub: "Datele clienților tăi nu sunt unde crezi că sunt. Nu sunt protejate de cine crezi că le protejează.",
     risks: [
       {
         eyebrow: "RISC 01 — Jurisdicție americană",
         title: "Datele tale sunt sub jurisdicția SUA",
-        body: "Legea americană CLOUD Act permite autorităților SUA să acceseze datele stocate la Microsoft, Google sau AWS — chiar dacă serverele sunt fizic în Frankfurt sau Dublin. Fără notificare. Fără permisiunea ta. Fără posibilitatea de a contesta legal din UE.",
+        body: "Legea americană CLOUD Act permite autorităților SUA să acceseze datele stocate la orice furnizor de cloud cu sediul în SUA — chiar dacă serverele sunt fizic în Frankfurt sau Dublin. Fără notificare. Fără permisiunea ta. Fără posibilitatea de a contesta legal din UE.",
         citation: "CLOUD Act, 18 U.S.C. § 2713 (2018)",
       },
       {
@@ -152,8 +182,38 @@ const ro: typeof en = {
       {
         eyebrow: "RISC 03 — Răspunderea GDPR îți rămâne ție",
         title: "Breșa lor, amenda ta",
-        body: "Când Microsoft are o breșă de securitate — și are, regulat — răspunderea legală în fața ANSPDCP rămâne la tine, ca operator de date. Amenzi GDPR de până la 4% din cifra de afaceri sau 20 milioane €. Plus pierderea încrederii clienților.",
+        body: "Când furnizorul tău de cloud are o breșă de securitate — și cei mari americani au, regulat — răspunderea legală în fața ANSPDCP rămâne la tine, ca operator de date. Amenzi GDPR de până la 4% din cifra de afaceri sau 20 milioane €. Plus pierderea încrederii clienților.",
         citation: "Regulamentul (UE) 2016/679, Art. 83",
+      },
+    ],
+  },
+  solution: {
+    eyebrow: "§ 03 — Soluția",
+    headlineLead: "Toate funcțiile.",
+    headlineAccent: "Zero",
+    headlineTail: "dependențe americane.",
+    sub: "O singură platformă cu tot ce are nevoie firma ta. Construită sub legi europene, găzduită în Germania, suport în limba ta.",
+    items: [
+      {
+        responseMarker: "← Răspuns la RISC 01",
+        eyebrow: "SOLUȚIE 01 — Jurisdicție 100% europeană",
+        title: "Doar legi europene. Punct.",
+        body: "Datele tale locuiesc pe servere fizice Hetzner în Frankfurt, operate de o companie germană sub jurisdicția UE. Niciun guvern non-european nu poate solicita acces. Niciun contract nu poate fi suprascris de o lege străină. Doar GDPR, NIS2 și legislația națională română.",
+        citation: "Hetzner Online GmbH · Frankfurt, Germania",
+      },
+      {
+        responseMarker: "← Răspuns la RISC 02",
+        eyebrow: "SOLUȚIE 02 — Control complet, fără kill-switch",
+        title: "Datele tale, sub controlul tău. Întotdeauna.",
+        body: "Infrastructură open-source (Nextcloud, Collabora, Jitsi, Matrix). Cod auditabil. Export complet al datelor în orice moment, în formate standard. Dacă vreodată vrei să pleci, pleci — cu tot ce ai. Niciun lock-in contractual, niciun risc de blocare arbitrară.",
+        citation: "Open-source · GPL/AGPL · Export GDPR-compliant",
+      },
+      {
+        responseMarker: "← Răspuns la RISC 03",
+        eyebrow: "SOLUȚIE 03 — Conformitate GDPR by design",
+        title: "GDPR nu e un disclaimer. E arhitectura.",
+        body: "Data Processing Agreement standard inclus. Audit GDPR documentat. Hosting exclusiv în UE. Criptare end-to-end. Logs accesibile. Suportul nostru e bazat în România, vorbește limba ta și înțelege ANSPDCP. Când inspectorul te întreabă unde sunt datele, ai un singur răspuns clar: Frankfurt.",
+        citation: "Conform Regulament (UE) 2016/679 · NIS2 ready",
       },
     ],
   },
@@ -162,7 +222,7 @@ const ro: typeof en = {
     sections: {
       hero: "§ 01 — Erou",
       problem: "§ 02 — Problema",
-      trust: "§ 03 — Încredere",
+      solution: "§ 03 — Soluția",
       platform: "§ 04 — Platformă",
       pricing: "§ 05 — Prețuri",
     },

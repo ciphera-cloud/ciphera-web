@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/layout/navbar"
 import { Hero } from "@/components/sections/hero"
 import { Problem } from "@/components/sections/problem"
+import { Solution } from "@/components/sections/solution"
 import { Footer } from "@/components/layout/footer"
 import { I18nProvider } from "@/lib/i18n"
 
@@ -12,6 +13,7 @@ export default function Home() {
         <main className="flex-1">
           <Hero />
           <Problem />
+          <Solution />
         </main>
         <Footer />
       </div>
