@@ -21,7 +21,7 @@ export function Solution() {
       >
         {/* Eyebrow */}
         <div
-          className="px-12 py-4 flex items-center gap-3 border-b"
+          className="px-6 md:px-12 py-3 md:py-4 flex items-center gap-3 border-b"
           style={{ borderColor: 'oklch(0.922 0 0)' }}
         >
           <span
@@ -40,9 +40,9 @@ export function Solution() {
         </div>
 
         {/* Headline + sub */}
-        <div className="max-w-7xl mx-auto px-12 py-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12">
           <h2
-            className="md:col-span-8 text-[56px] md:text-[72px] leading-[0.98] font-medium tracking-[-0.02em]"
+            className="md:col-span-8 text-[32px] sm:text-[44px] md:text-[56px] lg:text-[72px] leading-[0.98] font-medium tracking-[-0.02em]"
             style={{
               color: 'oklch(0.18 0.01 270)',
               fontFamily: 'var(--font-bricolage)',
@@ -61,7 +61,7 @@ export function Solution() {
             {t.solution.headlineTail}
           </h2>
           <p
-            className="md:col-span-4 md:pt-3 text-[17px] leading-[1.55]"
+            className="md:col-span-4 md:pt-3 text-[16px] md:text-[17px] leading-[1.55]"
             style={{ color: 'oklch(0.42 0.01 270)' }}
           >
             {t.solution.sub}
@@ -77,7 +77,7 @@ export function Solution() {
             return (
               <article
                 key={idx}
-                className={`flex flex-col h-full px-12 py-12 ${
+                className={`flex flex-col h-full px-6 md:px-12 py-8 md:py-12 ${
                   isLast ? '' : 'border-b md:border-b-0 md:border-r'
                 }`}
                 style={{ borderColor: 'oklch(0.922 0 0)' }}
@@ -103,7 +103,7 @@ export function Solution() {
                 </div>
 
                 <h3
-                  className="text-[28px] leading-[1.1] font-normal italic tracking-[-0.01em] mb-6"
+                  className="text-[24px] md:text-[28px] leading-[1.1] font-normal italic tracking-[-0.01em] mb-6"
                   style={{
                     color: 'oklch(0.18 0.01 270)',
                     fontFamily: 'var(--font-instrument-serif)',
@@ -113,14 +113,14 @@ export function Solution() {
                 </h3>
 
                 <p
-                  className="text-[17px] leading-[1.55]"
+                  className="text-[16px] md:text-[17px] leading-[1.55]"
                   style={{ color: 'oklch(0.18 0.01 270)' }}
                 >
                   {item.body}
                 </p>
 
                 <div
-                  className="mt-auto pt-10 text-[11px] tracking-[0.08em] uppercase"
+                  className="mt-auto pt-8 md:pt-10 text-[11px] tracking-[0.08em] uppercase"
                   style={{
                     color: 'oklch(0.42 0.01 270)',
                     fontFamily: 'var(--font-geist-mono)',

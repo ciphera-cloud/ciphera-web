@@ -55,12 +55,12 @@ export function Navbar() {
       className="sticky top-0 z-50 border-b bg-white"
       style={{ borderColor: 'oklch(0.922 0 0)' }}
     >
-      <div className="grid grid-cols-3 items-center px-12 h-16">
+      <div className="flex items-center justify-between px-4 md:px-12 h-14 md:h-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <CipheraLogoMark />
           <span
-            className="text-[20px] font-semibold tracking-tight"
+            className="text-[18px] md:text-[20px] font-semibold tracking-tight"
             style={{
               color: 'oklch(0.18 0.01 270)',
               fontFamily: 'var(--font-bricolage)',
@@ -70,8 +70,8 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Nav links centered */}
-        <nav className="flex items-center justify-center gap-8">
+        {/* Nav links — hidden on mobile */}
+        <nav className="hidden md:flex items-center justify-center gap-8">
           {navLinks.map(({ label, href }) => (
             <Link
               key={label}
@@ -85,7 +85,7 @@ export function Navbar() {
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center justify-end gap-5">
+        <div className="flex items-center gap-2 md:gap-5">
           {/* Language picker */}
           <Select
             value={locale}
@@ -124,14 +124,14 @@ export function Navbar() {
           </Select>
           <Link
             href="/sign-in"
-            className="text-[14px] transition-opacity hover:opacity-60"
+            className="hidden sm:inline text-[14px] transition-opacity hover:opacity-60"
             style={{ color: 'oklch(0.18 0.01 270)' }}
           >
             {t.navbar.signIn}
           </Link>
           <Link
             href="/sign-up"
-            className="px-4 py-2 text-[14px] font-medium rounded-full inline-flex items-center gap-1.5 transition-opacity hover:opacity-90"
+            className="px-3 py-1.5 md:px-4 md:py-2 text-[13px] md:text-[14px] font-medium rounded-full inline-flex items-center gap-1.5 transition-opacity hover:opacity-90 whitespace-nowrap"
             style={{ backgroundColor: 'oklch(0.18 0.01 270)', color: 'white' }}
           >
             {t.navbar.cta}
